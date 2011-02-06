@@ -1,0 +1,60 @@
+/* Author: Sean Caetano Martin
+      xonecas.com
+*/
+
+(function (window, undefined) {
+   document = window.document;
+
+   function draw(ctx, lat, lng) {
+      var w = ctx.canvas.width,
+         h = ctx.canvas.height,
+         x = Math.floor( lat*(w/360) ),
+         y = Math.floor( lng*(h/180) * -1 );
+
+      var grad = ctx.createRadialGradient(x, y, 2, x, y, 4);
+
+      var rgb = Math.floor(Math.random()*256) +', ';
+      rgb += Math.floor(Math.random()*256) +', ';
+      rgb += Math.floor(Math.random()*256) +', ';
+      
+
+      grad.addColorStop(0, 'rgba('+rgb+'1)');
+      grad.addColorStop(1, 'rgba('+rgb+'0)');
+
+      ctx.fillStyle = grad;
+      ctx.fillRect(x-4,y-4,8,8);
+   }
+
+   window.onload = function () {
+
+      var canvas = document.createElement('canvas'),
+         ctx = canvas.getContext('2d');
+
+      $('#container').append(canvas);
+
+      var width = canvas.width = $(window).width();
+      var height = $(window).height(),
+         minHeight = Math.floor(width/2);
+      canvas.height = (height < (minHeight))? minHeight: height;
+
+      ctx.translate(
+         Math.floor(canvas.width/2),
+         Math.floor(canvas.height/2)
+      );
+
+      var socket = new io.Socket('xonecas.com'); 
+      socket.connect();
+
+      socket.on('message', function(data){ 
+
+         var point = $.parseJSON(data);
+
+         var lat = Math.floor(point.lat),
+            lng = Math.floor(point.lng);
+
+         draw(ctx, lat, lng);
+
+      });
+   }
+}) (window);
+
