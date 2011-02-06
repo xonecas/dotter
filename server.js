@@ -25,6 +25,7 @@ server.listen(1234);
 var stream = false;
 var socket = io.listen(server);
 
+//var debug = 10;
 socket.on('connection', function (client) {
    if (!stream) {
       twitter.stream('statuses/filter', {locations: '-180,-90,180,90'}, 
@@ -35,6 +36,12 @@ socket.on('connection', function (client) {
          console.log('===== New stream started =====');
 
          stream.on('data', function (twiit) {
+/*
+            if (debug) {
+               console.log(sys.inspect(twiit));
+               debug--;
+            }
+*/
 
             var geo = twiit.geo,
                coords = twiit.coordinates;
@@ -55,7 +62,7 @@ socket.on('connection', function (client) {
    }
 
    client.on('disconnect', function () {
-      if (_.size(socket.clients === 0)) {
+      if (_.size(socket.clients) === 1) {
          stream.destroy();
          stream = false;
          console.log('===== Stream destroyed, idle =====');
