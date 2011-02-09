@@ -3,7 +3,7 @@
 */
 
 (function (window, undefined) {
-   document = window.document;
+   var document = window.document;
 
    function draw(ctx, lat, lng) {
       var w = ctx.canvas.width,
@@ -11,7 +11,7 @@
          x = Math.floor( lat*(w/360) ),
          y = Math.floor( lng*(h/180) * -1 );
 
-      var grad = ctx.createRadialGradient(x, y, 2, x, y, 4);
+      var grad = ctx.createRadialGradient(x, y, 1, x, y, 4);
 
       var rgb = Math.floor(Math.random()*256) +', ';
       rgb += Math.floor(Math.random()*256) +', ';
@@ -27,8 +27,11 @@
 
    window.onload = function () {
 
-      var canvas = document.createElement('canvas'),
-         ctx = canvas.getContext('2d');
+      var canvas = document.createElement('canvas');
+      if (!Modernizr.canvas)
+         G_vmlCanvasManager.initElement(canvas);
+
+      var ctx = canvas.getContext('2d');
 
       $('#container').append(canvas);
 
