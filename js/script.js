@@ -48,12 +48,21 @@
       var socket = new io.Socket('xonecas.com'); 
       socket.connect();
 
+      socket.on('connect', function () {
+         socket.send('track');
+      });
+
       socket.on('message', function(data){ 
 
          var point = $.parseJSON(data);
 
          var lat = Math.floor(point.lat),
             lng = Math.floor(point.lng);
+
+         if (point.repoint !== undefined) {
+            var repoint = point.repoint;
+            draw(ctx, repoint.lat, repoint.lng);
+         }
 
          draw(ctx, lat, lng);
 
