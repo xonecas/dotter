@@ -89,8 +89,8 @@ html { overflow-y: scroll; }
 /* accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 a:hover, a:active { outline: none; }
 
-a, a:active, a:visited { color: #607890; }
-a:hover { color: #036; }
+a, a:active, a:visited { color: #3366ff; }
+a:hover { color: #2255cc; }
 
 
 ul, ol { margin-left: 2em; }
@@ -162,10 +162,55 @@ button {  width: auto; overflow: visible; }
  */
 
 html, body {
-   background-color: #222;
+   background-color: #444;
 }
-
-
+h1 {
+   margin: 5px 10px; font-size: 26px; font-family: 'Carter One', arial, serif;
+   text-shadow: 0px 1px 1px #000; color: #eee; 
+}
+p { margin-bottom: 1em;}
+em {font-style: italic;}
+#container {position: relative;}
+#about {
+   width: 250px;
+   display:none; position: absolute; top: 5px; right: 10px;z-index: 2;
+   background-color: #333; padding: 10px;
+   -moz-border-radius: 12px; 
+   -webkit-border-radius: 12px; 
+   border-radius: 12px; 
+   -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+   -moz-box-shadow: 0px 0px 4px #000; 
+   -webkit-box-shadow: 0px 0px 4px #000; 
+   box-shadow: 0px 0px 4px #000; 
+}
+.handle {float: right;margin: 5px 15px 0 0;}
+.button {
+   padding: 2px 10px; cursor: pointer;
+   -moz-border-radius: 20px; 
+   -webkit-border-radius: 20px; 
+   border-radius: 20px; 
+   -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+   color: #fff !important; text-decoration: none !important;
+   background-color: #3366ff;
+   background-image: -webkit-gradient(linear, left top, left bottom, from(#3366ff), to(#335599)); 
+   background-image: -webkit-linear-gradient(top, #3366ff, #335599); 
+   background-image: -moz-linear-gradient(top, #3366ff, #335599); 
+   background-image: -ms-linear-gradient(top, #3366ff, #335599); 
+   background-image: -o-linear-gradient(top, #3366ff, #335599); 
+   background-image: linear-gradient(top, #3366ff, #335599);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#3366ff', EndColorStr='#335599'); 
+}
+.button:hover {
+   background-color: #335599;
+   background-image: -webkit-gradient(linear, left top, left bottom, from(#335599), to(#3366ff)); 
+   background-image: -webkit-linear-gradient(top, #335599, #3366ff); 
+   background-image: -moz-linear-gradient(top, #335599, #3366ff); 
+   background-image: -ms-linear-gradient(top, #335599, #3366ff); 
+   background-image: -o-linear-gradient(top, #335599, #3366ff); 
+   background-image: linear-gradient(top, #335599, #3366ff);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#335599', EndColorStr='#3366ff'); 
+   
+}
 
 
 

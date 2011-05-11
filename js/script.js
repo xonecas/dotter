@@ -25,10 +25,14 @@
       ctx.fillRect(x-4,y-4,8,8);
    }
 
-   window.onload = function () {
+   $(window).ready(function () {
+      $(".handle").click(function (ev) {
+         var target = '#'+$(this).data('target');
+         $(target).slideToggle('slow');
+      });
 
       var canvas = document.createElement('canvas');
-      if (!Modernizr.canvas)
+      if (!Modernizr.canvas && G_vmlCanvasManager)
          G_vmlCanvasManager.initElement(canvas);
 
       var ctx = canvas.getContext('2d');
@@ -66,6 +70,6 @@
          draw(ctx, lat, lng);
 
       });
-   }
+   });
 }) (window);
 

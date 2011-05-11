@@ -18,29 +18,42 @@
 
 
    <link rel="stylesheet" href="css/style.css?v=2">
+   <link href='http://fonts.googleapis.com/css?family=Carter+One' rel='stylesheet' type='text/css'>
 
-   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+
    <script src="js/libs/modernizr-1.6.min.js"></script>
 </head>
 
 <body lang="en" >
 
-  <div id="container">
-  </div> <!--! end of #container -->
+   <div id="container">
+      <div id="about">
+         <p>This is an experiment using the <em>Twitter API</em>.<br />
+         Every dot is a tweet with geographic coordinates.
+         I used a canvas element layout as a latitude/longitude
+         grid.<br /><em>Sit back and let the world draw itself one tweet at a time :-)
+         </em></p>
+
+         <a class="button" href="//github.com/xonecas/dotter">View the source</a>
+         <a href="#" class="handle" data-target="about">Close</a>
+      </div>
+      <header>
+         <strong class="button handle" data-target="about">About</strong>
+         <h1>The Dotter Experience</h1>
+      </header>
+   </div> <!--! end of #container -->
 
 
    <!-- JavaScript at the bottom for fast page loading -->
 
-   <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.js"></script>
    <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.5.0.js"%3E%3C/script%3E'))</script>
 
 
-   <!-- scripts concatenated and minified via ant build script-->
    <script>!Modernizr.canvas && document.write(unescape('%3Cscript src="js/libs/excanvas.js"%3E%3C/script%3E'))</script>
    <script src="/socket.io/socket.io.js"></script> 
+   <script src="js/plugins.js"></script>
    <script src="js/script.js"></script>
-   <!-- end concatenated and minified scripts-->
 
 </body>
 </html>
