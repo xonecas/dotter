@@ -53,7 +53,6 @@
       });
 
       socket.on('message', function(data){ 
-
          var point = $.parseJSON(data);
 
          var lat = Math.floor(point.lat),

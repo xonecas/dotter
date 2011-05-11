@@ -1,6 +1,5 @@
 
-var sys = require('sys'),
-   io = require('socket.io'),
+var io = require('socket.io'),
    _ = require('underscore'),
    connect = require('connect'),
    http = require('http'),
@@ -31,12 +30,8 @@ var twitter = new Twitter({
 });
 
 var server = connect.createServer(
-   connect.conditionalGet(),
-   connect.cache(),
-   connect.gzip(),
-   connect.staticProvider(__dirname)
+   connect.static(__dirname)
 );
-
 server.listen(1234);
 
 var stream = false;
