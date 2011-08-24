@@ -23,10 +23,10 @@ function getPoint(twiit) {
 }
 
 var twitter = new Twitter({
-   consumer_key: 'qRnYzQj3dxTkxaFwkkiw',
-   consumer_secret: 'CGcMlTKdP9HKVelHijPzvSb4EfmJxzHxEccuXENs',
-   access_token_key: '59268061-xuB5Wo0b9kGewqP3pGxbstTDCZTKQ9RxRofwotqD5',
-   access_token_secret: 'qWJkB3kHyP9vdRW7zQcXShsjGazbWxK4GuwFsFrlQIE'
+   consumer_key: '',
+   consumer_secret: '',
+   access_token_key: '',
+   access_token_secret: ''
 });
 
 var server = connect.createServer(
